@@ -1,18 +1,11 @@
+# The following are the commands I used to install Arch onto a VM. 
+
 #Disk Partioning
-
-    fdisk /dev/sda
-    n -- new partition
-    (enter) (p -- primary disk)
-    (enter) (1 -- partition number)
-    (enter) set first sector
-    (enter) set last sector (use whole disk)
-    w -- write partition table and quit
-
-#Format partition:
-    mkfs.ext4 /dev/sda1
-
-#Mount filesystem:
-    mount /dev/sda1 /mnt
+    mkfs.ext2 /dev/sda2 mkfs.ext4 /dev/sda4
+    #Format and activate the swap partition
+    mkswap /dev/sda3 && swapon /dev/sda3
+    #Mount the partitions
+    mount /dev/sda4 /mnt mkdir /mnt/boot mount /dev/sda2 /mnt/boot
 
 #Base packages:
     pacstrap /mnt base
@@ -53,8 +46,3 @@
     grub-install --target=i386-pc /dev/sda
     grub-mkconfig -o /boot/grub/grub.cfg
 
-#Reboot:
-
-    exit
-    umount -R /mnt
-    reboot
