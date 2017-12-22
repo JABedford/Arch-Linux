@@ -29,8 +29,8 @@
     #Put the corresponding LANG variable (e.g. LANG=en_GB.UTF-8) in /etc/locale.conf:
         echo 'LANG=en_GB.UTF-8' >/etc/locale.conf
 
-#Set hostname (e.g. arch):
-    echo arch >/etc/hostname
+#Set hostname
+    echo archlinux >/etc/hostname
 
 #Enable DHCP client daemon:
     systemctl enable dhcpcd
