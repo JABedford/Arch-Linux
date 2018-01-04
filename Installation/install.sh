@@ -41,8 +41,25 @@
       #password entry 2
 
 #Install GRUB:
-
     pacman -S grub
     grub-install --target=i386-pc /dev/sda
     grub-mkconfig -o /boot/grub/grub.cfg
+
+#Configuration of pacman
+     /etc/pacman.conf
+     #erase the mutlib hashes to allow 32-bit packages.
+    
+#Add user account
+     useradd -m -g users -G wheel,storage,power -s /bin/bash jabedford
+     passwd jabedford
+    
+#Install Sudo
+     pacman -S sudo
+     
+     
+     
+
+    
+ 
+
 
